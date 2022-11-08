@@ -1,8 +1,10 @@
+import ListTask from "./components/ListTask";
+
 
 function App() {
   return (
-    <div className="h-screen w-screen">
-      <p className="text-6xl">Hola mundo!!!</p>
+    <div className="h-screen w-screen flex justify-center items-center">
+      <ListTask/>
     </div>
   );
 }
