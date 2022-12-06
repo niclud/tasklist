@@ -1,19 +1,31 @@
+import React, { useState, useContext } from "react";
+import TasksContext from "../context/TasksContext";
 import Button from "./Button";
+import Task from "./Task";
+
 function FormTask() {
-  const task = document.getElementById("inputTask");
-  const buttonTask = document.getElementById("buttonTask");
-  let tasks = [];
   // pensar de que forma puedo ordenar los distintos componentes para que me devuelvan el target del form y con eso crearun nuevo componente Task
+  let context = useContext(TasksContext);
+  const [keyword, setKeyword] = useState("");
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    context.push(keyword);
+    console.log(context);
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit} id="formulario">
       <input
-        id="inputTask"
+        onChange={handleChange}
+        value={keyword}
         type="text"
-        name="taskText"
         className="rounded-lg bg-slate-300 px-2"
         placeholder="Agregar Tarea..."
       ></input>
       <button
+        type="submit"
         id="buttonTask"
         className="bg-cyan-500 hover:bg-cyan-600 rounded-full"
       >
