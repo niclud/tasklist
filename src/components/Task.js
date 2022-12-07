@@ -1,13 +1,8 @@
-import { useState } from "react";
-
 function Task(props) {
-  const [enabled, setEnabled] = useState(true);
-  const className = enabled ? "" : "uppercase";
+  const className = props.state ? "" : "uppercase m-16 p-5";
   return (
-    <div className=" bg-yellow-400 rounded-lg p-3">
-      <strong onClick={() => setEnabled(!enabled)} className={className}>
-        {props.name}
-      </strong>
+    <div className={`bg-yellow-400 rounded-lg p-3 ${className}`}>
+      <strong onClick={props.markTask}>{props.name}</strong>
     </div>
   );
 }
