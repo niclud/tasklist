@@ -6,12 +6,18 @@ function CurrentDate() {
   }, []);
   return (
     <div className="grid grid-flow-col justify-start w-full">
-      <p className="uppercase">
-        {date?.toLocaleString("es", { day: "numeric" })}
-        {date?.toLocaleString("es", { weekday: "long" })}
-        {date?.toLocaleString("es", { month: "short" })}
-        {date?.toLocaleString("es", { year: "numeric" })}
-      </p>
+      <div id="dateRigth">
+        <div id="dateNumber">
+          <div>
+            {date?.toLocaleString("es", { day: "numeric" })}
+            <div>{date?.toLocaleString("es", { month: "short" })}</div>
+            <div>{date?.toLocaleString("es", { year: "numeric" })}</div>
+          </div>
+        </div>
+        <div id="dateText">
+          {date?.toLocaleString("es", { weekday: "long" })}
+        </div>
+      </div>
     </div>
   );
 }
