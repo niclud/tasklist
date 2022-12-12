@@ -1,13 +1,10 @@
 import ListTask from "./components/ListTask";
-import TasksContext from "./context/TasksContext";
-let tasks = [];
+import Narrower from "./components/Narrower";
 function App() {
   return (
-    <TasksContext.Provider value={tasks}>
-      <div className="h-screen w-screen flex justify-center items-center">
-        <ListTask tasks={tasks} />
-      </div>
-    </TasksContext.Provider>
+    <Narrower className="flex justify-center items-center h-screen">
+      <ListTask />
+    </Narrower>
   );
 }
 
