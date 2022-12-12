@@ -18,12 +18,16 @@ function ListTask() {
     tasks[id].state = !tasks[id].state;
     setTasks(() => [...tasks]);
   };
+  const sortTasks = () => {
+    let doneTasks = [];
+    let doitTasks = [];
+    tasks.forEach((t) => (t.state ? doitTasks.push(t) : doneTasks.push(t)));
+    setTasks(() => [...doitTasks, ...doneTasks]);
+  };
   return (
-    <div className="bg-white justify-center m-0 p-2  rounded-lg">
-      <div className="grid grid-flow-col justify-start w-full">
-        <CurrentDate />
-      </div>
-      <FormTask addItem={addItem} />
+    <div className="bg-white max-w-[450px] w-full m-[25px] p-[25px]  rounded-lg">
+      <CurrentDate />
+      <FormTask sortTasks={sortTasks} addItem={addItem} />
       {tasks.map((c, id) => (
         <Task
           state={c.state}

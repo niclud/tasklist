@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-function FormTask({ addItem }) {
+function FormTask(props) {
   // pensar de que forma puedo ordenar los distintos componentes para que me devuelvan el target del form y con eso crearun nuevo componente Task
   const [keyword, setKeyword] = useState("");
   const handleChange = (e) => {
@@ -9,7 +9,7 @@ function FormTask({ addItem }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItem(keyword);
+    props.addItem(keyword);
     console.log(keyword);
   };
   return (
@@ -28,7 +28,10 @@ function FormTask({ addItem }) {
       >
         +
       </button>
-      <Button>ordenar</Button>
+
+      <Button type="button" funcion={props.sortTasks}>
+        ordenar
+      </Button>
     </form>
   );
 }

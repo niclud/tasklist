@@ -17,7 +17,7 @@ function Header() {
         >
           {enabled ? (
             <>
-              <Button>Sign Up</Button>
+              <Button>Login</Button>
               <Button>Register</Button>
             </>
           ) : (

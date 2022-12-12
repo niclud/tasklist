@@ -3,8 +3,8 @@ function Task(props) {
     ? "rounded-lg p-3 bg-lime-400 my-3"
     : "rounded-lg p-3 bg-red-800 line-through my-3";
   return (
-    <div className={`${className}`}>
-      <strong onClick={props.markTask}>{props.name}</strong>
+    <div onClick={props.markTask} className={`${className} cursor-pointer`}>
+      <strong>{props.name}</strong>
     </div>
   );
 }
