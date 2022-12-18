@@ -15,6 +15,7 @@ function ListTask() {
     ]);
   };
   const markTask = (id) => {
+    console.log(tasks[id].date);
     tasks[id].state = !tasks[id].state;
     setTasks(() => [...tasks]);
   };
@@ -24,6 +25,11 @@ function ListTask() {
     tasks.forEach((t) => (t.state ? doitTasks.push(t) : doneTasks.push(t)));
     setTasks(() => [...doitTasks, ...doneTasks]);
   };
+
+  const deleteTask = (id) => {
+    tasks.splice(id, 1);
+    setTasks(() => [...tasks]);
+  };
   return (
     <div className="bg-white max-w-[450px] w-full m-[25px] p-[25px]  rounded-lg">
       <CurrentDate />
@@ -31,6 +37,7 @@ function ListTask() {
       {tasks.map((c, id) => (
         <Task
           state={c.state}
+          deleteTask={() => deleteTask(id)}
           markTask={() => markTask(id)}
           name={c.name}
         ></Task>
