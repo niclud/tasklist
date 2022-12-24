@@ -26,7 +26,7 @@ function FormTask(props) {
         id="buttonTask"
         className="bg-cyan-500 hover:bg-cyan-600 rounded-full"
       >
-        +
+        <i className="fa-regular fa-plus text-black"></i>
       </button>
 
       <Button type="button" funcion={props.sortTasks}>

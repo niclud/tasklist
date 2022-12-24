@@ -1,5 +1,5 @@
-import Narrower from "./Narrower";
-import Button from "./Button";
+import Narrower from "../components/Narrower";
+import Button from "../components/Button";
 import { useState } from "react";
 
 function Header() {

@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import "./input.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./layouts/Header";
+import Footer from "./layouts/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

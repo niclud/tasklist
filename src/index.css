@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background: linear-gradient(to bottom, #9a67ea, #04d4c3);
+  background-color: #0a2647;
+  padding-bottom: 40px;
+  padding-top: 50px;
 }
 
 footer {
