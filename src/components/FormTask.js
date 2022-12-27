@@ -16,6 +16,7 @@ function FormTask(props) {
       <input
         onChange={handleChange}
         value={keyword}
+        maxLength="27"
         type="text"
         className="rounded-lg bg-slate-300 px-2 w-[155px] md:w-auto"
         placeholder="Agregar Tarea..."
