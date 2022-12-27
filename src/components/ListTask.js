@@ -31,7 +31,7 @@ function ListTask() {
     setTasks(() => [...tasks]);
   };
   return (
-    <div className="bg-white w-[450px] m-[25px] p-[25px]  rounded-lg">
+    <div className="bg-white w-[300px] md:w-[450px] m-[25px] p-[25px]  rounded-lg">
       <CurrentDate />
       <FormTask sortTasks={sortTasks} addItem={addItem} />
       {tasks.map((c, id) => (

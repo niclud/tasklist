@@ -18,7 +18,7 @@ function FormTask(props) {
         onChange={handleChange}
         value={keyword}
         type="text"
-        className="rounded-lg bg-slate-300 px-2"
+        className="rounded-lg bg-slate-300 px-2 w-[155px] md:w-auto"
         placeholder="Agregar Tarea..."
       ></input>
       <button
@@ -29,8 +29,8 @@ function FormTask(props) {
         <i className="fa-regular fa-plus text-black"></i>
       </button>
 
-      <Button type="button" funcion={props.sortTasks}>
-        ordenar
+      <Button type="button" funcion={props.sortTasks} className="w-auto">
+        <i class="fa-solid fa-arrow-up-wide-short"></i>
       </Button>
     </form>
   );
