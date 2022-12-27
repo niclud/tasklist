@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "./Button";
 
 function FormTask(props) {
-  // pensar de que forma puedo ordenar los distintos componentes para que me devuelvan el target del form y con eso crearun nuevo componente Task
   const [keyword, setKeyword] = useState("");
   const handleChange = (e) => {
     setKeyword(e.target.value);
@@ -24,14 +23,16 @@ function FormTask(props) {
       <button
         type="submit"
         id="buttonTask"
-        className="bg-cyan-500 hover:bg-cyan-600 rounded-full"
+        className="bg-cyan-500 hover:bg-cyan-600 rounded-full w-7 h-7"
       >
         <i className="fa-regular fa-plus text-black"></i>
       </button>
 
-      <Button type="button" funcion={props.sortTasks} className="w-auto">
-        <i class="fa-solid fa-arrow-up-wide-short"></i>
-      </Button>
+      <Button
+        type="button"
+        funcion={props.sortTasks}
+        className="w-7 h-7 fa-solid fa-arrow-up-wide-short"
+      ></Button>
     </form>
   );
 }

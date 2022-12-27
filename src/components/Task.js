@@ -6,13 +6,15 @@ function Task(props) {
     <div className="flex justify-between items-center">
       <div
         onClick={props.markTask}
-        className={`${className} w-[90%] hover:opacity-70 cursor-pointer flex justify-between items-center`}
+        className={`${className} w-[80%] hover:opacity-70 cursor-pointer flex justify-between items-center`}
       >
         <strong>{props.name}</strong>
       </div>
+      <i class="fa-solid fa-circle-info cursor-pointer"></i>
+
       <i
         class="fa-solid fa-trash justify-end cursor-pointer"
-        onClick={props.deleteTask}
+        onClick={props.modalDeleteTask}
       ></i>
     </div>
   );

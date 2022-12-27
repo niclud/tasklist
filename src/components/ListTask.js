@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CurrentDate from "./Date";
 import FormTask from "./FormTask";
+import DeleteModal from "./modals/DeleteModal";
 import Task from "./Task";
 function ListTask() {
   const [tasks, setTasks] = useState([]);
@@ -14,8 +15,16 @@ function ListTask() {
       },
     ]);
   };
+
+  const [stateModal1, changeStateModal1] = useState(false);
+  const [currentId, setCurrentId] = useState();
+  const changeState = (id) => {
+    console.log(id);
+    changeStateModal1(!stateModal1);
+    setCurrentId(id);
+  };
+
   const markTask = (id) => {
-    console.log(tasks[id].date);
     tasks[id].state = !tasks[id].state;
     setTasks(() => [...tasks]);
   };
@@ -27,8 +36,10 @@ function ListTask() {
   };
 
   const deleteTask = (id) => {
+    console.log(id);
     tasks.splice(id, 1);
     setTasks(() => [...tasks]);
+    changeState();
   };
   return (
     <div className="bg-white w-[300px] md:w-[450px] m-[25px] p-[25px]  rounded-lg">
@@ -37,11 +48,17 @@ function ListTask() {
       {tasks.map((c, id) => (
         <Task
           state={c.state}
-          deleteTask={() => deleteTask(id)}
+          modalDeleteTask={() => changeState(id)}
           markTask={() => markTask(id)}
           name={c.name}
         ></Task>
       ))}
+      <DeleteModal
+        deleteTasks={() => deleteTask(currentId)}
+        state={stateModal1}
+        changeState={changeState}
+        task={tasks[currentId]}
+      ></DeleteModal>
     </div>
   );
 }

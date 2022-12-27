@@ -11,17 +11,14 @@ function Header() {
           <strong className="bold text-4xl">TaskList</strong>
           <small className="bold">By Nico!</small>
         </a>
-        <div
-          className="grid grid-flow-col justify-end gap-4"
-          onClick={() => setEnabled(!enabled)}
-        >
+        <div className="grid grid-flow-col justify-end gap-4">
           {enabled ? (
             <>
               <Button>Login</Button>
               <Button>Register</Button>
             </>
           ) : (
-            <strong>Bienvenido Nicolas Ludueña</strong>
+            <strong>In progress...</strong>
           )}
         </div>
       </Narrower>
