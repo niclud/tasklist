@@ -2,6 +2,7 @@ import { useState } from "react";
 import CurrentDate from "./Date";
 import FormTask from "./FormTask";
 import DeleteModal from "./modals/DeleteModal";
+import InfoModal from "./modals/InfoModal";
 import Task from "./Task";
 function ListTask() {
   const [tasks, setTasks] = useState([]);
@@ -12,15 +13,21 @@ function ListTask() {
         name: keyword,
         state: true,
         date: Date.now(),
+        description: "",
       },
     ]);
   };
 
   const [stateModal1, changeStateModal1] = useState(false);
+  const [stateModal2, changeStateModal2] = useState(false);
   const [currentId, setCurrentId] = useState();
   const changeState = (id) => {
     console.log(id);
     changeStateModal1(!stateModal1);
+    setCurrentId(id);
+  };
+  const changeState2 = (id) => {
+    changeStateModal2(!stateModal2);
     setCurrentId(id);
   };
 
@@ -41,6 +48,7 @@ function ListTask() {
     setTasks(() => [...tasks]);
     changeState();
   };
+  console.log(tasks);
   return (
     <div className="bg-white w-[300px] md:w-[450px] m-[25px] p-[25px]  rounded-lg">
       <CurrentDate />
@@ -49,6 +57,7 @@ function ListTask() {
         <Task
           state={c.state}
           modalDeleteTask={() => changeState(id)}
+          modalInfoTask={() => changeState2(id)}
           markTask={() => markTask(id)}
           name={c.name}
         ></Task>
@@ -59,6 +68,11 @@ function ListTask() {
         changeState={changeState}
         task={tasks[currentId]}
       ></DeleteModal>
+      <InfoModal
+        state={stateModal2}
+        changeState={changeState2}
+        task={tasks[currentId]}
+      ></InfoModal>
     </div>
   );
 }

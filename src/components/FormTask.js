@@ -9,7 +9,7 @@ function FormTask(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addItem(keyword);
-    console.log(keyword);
+    setKeyword("");
   };
   return (
     <form onSubmit={handleSubmit} id="formulario">

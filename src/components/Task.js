@@ -10,7 +10,10 @@ function Task(props) {
       >
         <strong>{props.name}</strong>
       </div>
-      <i class="fa-solid fa-circle-info cursor-pointer"></i>
+      <i
+        class="fa-solid fa-circle-info cursor-pointer"
+        onClick={props.modalInfoTask}
+      ></i>
 
       <i
         class="fa-solid fa-trash justify-end cursor-pointer"
